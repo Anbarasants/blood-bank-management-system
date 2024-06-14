@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .jumbotron {
+            background-color: #c0392b;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .jumbotron h1 {
+            font-size: 48px;
+        }
+        .btn-primary {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+        .btn-primary:hover {
+            background-color: #a93226;
+            border-color: #a93226;
+        }
+        .feature {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .feature-icon {
+            font-size: 48px;
+            color: #c0392b;
+            margin-bottom: 20px;
+        }
+        .feature h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .feature p {
+            font-size: 18px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="https://www.svgrepo.com/show/3102/blood-drop.svg" width="40px" height="40px" class="mr-2" alt="Save Life Logo">
+            <span class="font-weight-bold">Blood Bank</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register') }}">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('donors') }}">Available Donors</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Jumbotron -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>Welcome to Blood Bank</h1>
+        <p class="lead">Donate blood, save lives</p>
+        <a href="{{ url_for('register') }}" class="btn btn-lg btn-primary">Donate Now</a>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section class="feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fas fa-heartbeat feature-icon"></i>
+                <h2>Why Donate?</h2>
+                <p>By donating blood, you can help save the lives of people in need. Every donation counts!</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-hand-holding-medical feature-icon"></i>
+                <h2>How to Donate?</h2>
+                <p>Donating blood is easy and safe. Find a nearby blood bank or donation center and schedule an appointment.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-users feature-icon"></i>
+                <h2>Who Can Donate?</h2>
+                <p>Most healthy adults are eligible to donate blood. Check with your local blood bank for specific requirements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Blood Bank. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>

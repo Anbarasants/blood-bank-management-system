@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Donors</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .containers {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+        .donor-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .donor-card h5 {
+            color: #c0392b;
+        }
+        .donor-card p {
+            margin: 0;
+        }
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .jumbotron {
+            background-color: #c0392b;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .jumbotron h1 {
+            font-size: 48px;
+        }
+        .btn-primary {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+        .btn-primary:hover {
+            background-color: #a93226;
+            border-color: #a93226;
+        }
+        .feature {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .feature-icon {
+            font-size: 48px;
+            color: #c0392b;
+            margin-bottom: 20px;
+        }
+        .feature h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .feature p {
+            font-size: 18px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.svgrepo.com/show/3102/blood-drop.svg" width="40px" height="40px" class="mr-2" alt="Save Life Logo">
+                <span class="font-weight-bold">Blood Bank</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('register') }}">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('donors') }}">Available Donors</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="containers">
+        <h1 class="text-center">Available Donors</h1>
+        <div class="mt-5">
+            {% for donor in donors %}
+            <div class="donor-card">
+                <h5>{{ donor.name }}</h5>
+                <p>Age: {{ donor.age }}</p>
+                <p>Gender: {{ donor.gender }}</p>
+                <p>Blood Type: {{ donor.blood_type }}</p>
+                <p>City: {{ donor.city }}</p>
+                <p>Phone: {{ donor.phone }}</p>
+                <a href="{{ url_for('update_donor', id=donor.id) }}" class="btn btn-warning btn-sm">Update</a>
+                <a href="{{ url_for('delete_donor', id=donor.id) }}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
